@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>How bored are you ?</title>
+
+<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css?family=Heebo:200, 300, 400');
+
+	body{
+		width:auto;
+		margin:auto;
+		background-color: #fcfcfc;
+		font-family: "Heebo", sans-serif;
+	}
+
+	button{
+		height:14vh;
+		margin-top: 5vh;
+		margin-bottom: 5vh;
+		margin-left:25vw;
+		width: 50vw;
+		background-color: #ececec;
+		border: 2px solid #5e97d4;
+		color: #222;
+		font-size: 7.5vh;
+		letter-spacing: 1px;
+	}
+
+	button:hover{
+		background-color: #5e97d4;
+		color: #ececec; 
+	}
+
+	.bigTitle{
+		margin-top: 10vh;
+		margin-bottom: 5vh;
+		color: #222;
+		font-size: 14vh;
+		text-align: center;
+	}
+
+	.subtitleInButton{
+		font-size: 3.5vh;
+	}
+
+	.resultDisplay{
+		margin-top: 5vh;
+		margin-bottom: 5vh;
+		color: #222;
+		font-size: 14vh;
+		text-align: center;
+	}
+
+	.highScoreDisplay{
+		margin-top: 5vh;
+		position: absolute;
+		bottom: 3vh;
+		width: 100vw;
+		color: #222;
+		font-size: 7.5vh;
+		text-align: center;
+	}
+
+</style>
+
+</head>
+
+
+<body>
+ 
+<div class= "bigTitle">Bored ?</div>
+
+<button id="mainButton"> Click and hold <br> <div class= "subtitleInButton"> until you find something better to do </div> </button>
+
+<script type="text/javascript">
+
+	(function() {
+
+	highScore= 0;
+
+	mainButton.addEventListener('mousedown', function(ev) {
+		startTime= Date.now();
+		document.getElementById("yourScore").innerText= " ";
+		ev.preventDefault();
+  	}, false);
+
+	mainButton.addEventListener('mouseup', function(ev) {
+		var endTime= Date.now();
+		var timeDifference= endTime- startTime;
+		document.getElementById("yourScore").innerText= timeDifference/1000+ " s";
+		if(timeDifference/1000> highScore){highScore= timeDifference/1000;}
+		document.getElementById("highScore").innerText= "High score : "+ highScore+ " s"
+    	ev.preventDefault();
+  	}, false);
+
+	}) ();
+
+</script>
+
+<div class= "resultDisplay" id= "yourScore"> </div>
+<div class= "highScoreDisplay" id= "highScore"> </div>
+
+</body>
+
+</html>
