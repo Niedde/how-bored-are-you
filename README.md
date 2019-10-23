@@ -1,2 +1,4 @@
 # how-bored-are-you
-A game to play if you're really really bored
+A game you can play if you're like really bored
+
+Hold the button as long as you can, or until you find something better to do.
